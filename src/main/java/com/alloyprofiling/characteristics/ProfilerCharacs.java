@@ -1,15 +1,15 @@
 package com.alloyprofiling.characteristics;
 
-import com.alloyprofiling.characteristics.singlefile.constraints.*;
-import com.alloyprofiling.characteristics.singlefile.cornercases.*;
-import com.alloyprofiling.characteristics.singlefile.length.ModelLength;
-import com.alloyprofiling.characteristics.singlefile.linear.FieldsExt;
-import com.alloyprofiling.characteristics.singlefile.linear.FieldsTopSigs;
-import com.alloyprofiling.characteristics.singlefile.linear.LengthSetsFormulas;
-import com.alloyprofiling.characteristics.singlefile.signatures.*;
+import com.alloyprofiling.characteristics.multifile.constraints.*;
+import com.alloyprofiling.characteristics.multifile.length.ModelLength;
+import com.alloyprofiling.characteristics.multifile.linear.LengthSetsFormulas;
+import com.alloyprofiling.characteristics.multifile.signatures.*;
+
+
+import java.io.FileNotFoundException;
 
 public class ProfilerCharacs {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         if (args.length == 0) {
             System.out.println("No argument given -- consult README file");
             return;
@@ -60,35 +60,11 @@ public class ProfilerCharacs {
             case "runcheck":
                 RunCheck.main(null);
                 break;
-            case "runforms":
-                RunForms.main(null);
-                break;
-            case "checkforms":
-                CheckForms.main(null);
-                break;
-            case "unionsuperset":
-                UnionSuperset.main(null);
-                break;
-            case "bitshifting":
-                BitshiftingOperators.main(null);
-                break;
-            case "constants":
-                Constants.main(null);
-                break;
-            case "macros":
-                Macros.main(null);
-                break;
-            case "reluniondiff":
-                RelUnionDiff.main(null);
-                break;
             case "lengthsetsformulas":
                 LengthSetsFormulas.main(null);
                 break;
-            case "fieldstopsigs":
-                FieldsTopSigs.main(null);
-                break;
-            case "fieldsext":
-                FieldsExt.main(null);
+            case "fieldsbykind":
+                FieldsByKind.main(null);
                 break;
             default:
                 System.out.println("Invalid argument -- consult README file");

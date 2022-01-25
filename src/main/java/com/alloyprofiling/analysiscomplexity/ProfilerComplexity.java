@@ -1,14 +1,15 @@
 package com.alloyprofiling.analysiscomplexity;
 
-import com.alloyprofiling.analysiscomplexity.singlefile.arity.FieldArity;
-import com.alloyprofiling.analysiscomplexity.singlefile.depthjoinsquant.DepthJoin;
-import com.alloyprofiling.analysiscomplexity.singlefile.depthjoinsquant.DepthQuantification;
-import com.alloyprofiling.analysiscomplexity.singlefile.partialtotalfuncs.*;
-import com.alloyprofiling.analysiscomplexity.singlefile.secondorderoperators.SetCardinality;
-import com.alloyprofiling.analysiscomplexity.singlefile.secondorderoperators.TCOperators;
+import com.alloyprofiling.analysiscomplexity.multifile.partialtotalfuncs.OverallPartialFuncs;
+import com.alloyprofiling.analysiscomplexity.multifile.partialtotalfuncs.OverallTotalFuncs;
+import com.alloyprofiling.analysiscomplexity.multifile.partialtotalfuncs.UserTotalFuncs;
+import com.alloyprofiling.analysiscomplexity.multifile.secondorderoperator.SetCardinality;
+import com.alloyprofiling.analysiscomplexity.multifile.secondorderoperator.TCOperators;
+
+import java.io.FileNotFoundException;
 
 public class ProfilerComplexity {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         if (args.length == 0) {
             System.out.println("No argument given -- consult README file");
             return;
@@ -20,32 +21,14 @@ public class ProfilerComplexity {
             case "transitiveclosure":
                 TCOperators.main(null);
                 break;
-            case "partialfuncs":
-                PartialFuncs.main(null);
-                break;
-            case "totalfuncs":
-                TotalFuncs.main(null);
-                break;
-            case "partialfuncsutil":
-                PartialFuncs_util.main(null);
-                break;
-            case "totalfuncsutil":
-                TotalFuncs_util.main(null);
+            case "usertotalfuncs":
+                UserTotalFuncs.main(null);
                 break;
             case "overallpartial":
                 OverallPartialFuncs.main(null);
                 break;
             case "overalltotal":
                 OverallTotalFuncs.main(null);
-                break;
-            case "depthjoin":
-                DepthJoin.main(null);
-                break;
-            case "depthquantification":
-                DepthQuantification.main(null);
-                break;
-            case "fieldarity":
-                FieldArity.main(null);
                 break;
             default:
                 System.out.println("Invalid argument -- consult README file");
