@@ -6,8 +6,23 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+task builderJar(type: Jar) {
+    archiveFileName = 'model-builder.jar'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes 'Main-Class': 'com.alloyprofiling.ModelBuilder'
+    }
+    archiveClassifier = "all"
+    from {
+        exclude '**/module-info.class'
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+}
+
 task characsJar(type: Jar) {
     archiveFileName = 'profiler-characs.jar'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes 'Main-Class': 'com.alloyprofiling.characteristics.ProfilerCharacs'
     }
@@ -21,6 +36,7 @@ task characsJar(type: Jar) {
 
 task patternsJar(type: Jar) {
     archiveFileName = 'profiler-patterns.jar'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes 'Main-Class': 'com.alloyprofiling.patternsofuse.ProfilerPatterns'
     }
@@ -34,6 +50,7 @@ task patternsJar(type: Jar) {
 
 task complexityJar(type: Jar) {
     archiveFileName = 'profiler-complexity.jar'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes 'Main-Class': 'com.alloyprofiling.analysiscomplexity.ProfilerComplexity'
     }

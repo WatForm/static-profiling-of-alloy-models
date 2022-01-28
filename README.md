@@ -17,6 +17,52 @@ These scripts are split into 4 sub-categories:
 
 All these scripts can be run using the ProfilerCharacs.java class located under src/main/java/com/alloyprofiling/characteristics.
 
+### Generating Corpus Structure Files:
+Before running any script, you have to generate the corpus structure files containing a list of files that make up each model and a list of modules that are imported by other files along with their parameters.
+
+To build the corpus structure files: 
+
+1. Generate model-builder.jar using the following **gradle** command if you have gradle installed on your local machine:
+   ```
+   gradle builderJar
+   ```
+
+   If you don't have gradle installed, you can use **gradlew**:
+
+   **Linux**:
+
+   ```
+   ./gradlew builderJar
+   ```
+
+   **Windows:**
+
+   ```
+   .\gradlew.bat builderJar
+   ```
+
+   The jar will be generated in build/libs.
+   
+ 
+2.  Create a new "**corpus**" directory (the name must be spelled exactly like this and in lowercase). Add the Alloy models you would like to profile do the "corpus" folder (models can be placed in subdirectories). Place the ModelBuilder.java class (located in src/main/java/com/alloyprofiling),  the generated model-builder.jar file (located in build/libs) and the "corpus" folder in the same directory on your local machine. 
+
+3. Open a terminal window/command prompt/PowerShell and compile the ProfilerCharacs.java file using the following command:
+
+     ~~~
+     javac -cp .\model-builder.jar ModelBuilder.java
+     ~~~
+
+     The command will generate a ModelBuilder.class file in the same directory if executed successfully.
+
+  4. Run the profiling script of your choice using the following command:
+     ~~~
+     java -cp .\model-builder.jar com.alloyprofiling.ModelBuilder
+     ~~~
+
+  A **Results** directory should be creating containing models.txt, module-params.txt, span.txt and span-multi.txt.
+
+models.txt contains the list of files that make up each model. Each line represents a model that may contain multiple files. Each line in module-params.txt contains the name of each an importing file, the imported file and the parameters (if any). span.txt contains the span of each model (i.e. the number of files that make up each model). span-multi.txt contains the span of multi-file models only.
+
 ### To run a script:
 
 1. Generate profiler-characs.jar using the following **gradle** command if you have gradle installed on your local machine:
@@ -41,7 +87,7 @@ All these scripts can be run using the ProfilerCharacs.java class located under 
 
    The jar will be generated in build/libs.
 
-2. Create a new "**corpus**" directory (the name must be spelled exactly like this and in lowercase). Add the Alloy models you would like to profile do the "corpus" folder (models can be placed in subdirectories). Place the ProfilerCharacs.java class,  the generated profiler-characs.jar file (located in build/libs) and the "corpus" folder in the same directory on your local machine. 
+2. Place the ProfilerCharacs.java class,  the generated profiler-characs.jar file (located in build/libs) and the "corpus" folder in the same directory on your local machine. 
 
 3. Open a terminal window/command prompt/PowerShell and compile the ProfilerCharacs.java file using the following command:
 

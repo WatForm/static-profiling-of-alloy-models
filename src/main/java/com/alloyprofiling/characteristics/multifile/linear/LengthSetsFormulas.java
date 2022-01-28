@@ -2,7 +2,7 @@ package com.alloyprofiling.characteristics.multifile.linear;
 
 import com.alloyprofiling.ALLOYLexer;
 import com.alloyprofiling.ALLOYParser;
-import com.alloyprofiling.characteristics.singlefile.length.ModelLength;
+import com.alloyprofiling.characteristics.multifile.length.ModelLength;
 import com.alloyprofiling.retrievers.FunctionRetriever;
 import com.alloyprofiling.retrievers.PredicateRetriever;
 import com.alloyprofiling.retrievers.RelationRetriever;
