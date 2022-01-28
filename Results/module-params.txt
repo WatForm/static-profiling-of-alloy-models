@@ -1,3 +1,0 @@
-corpus\m1.als,corpus\sub\m2.als,A
-corpus\m5.als,corpus\sub\m6.als,B,C
-corpus\sub\m2.als,corpus\sub\m3.als,B
