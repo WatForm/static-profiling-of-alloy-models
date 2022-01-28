@@ -59,9 +59,9 @@ To build the corpus structure files:
      java -cp .\model-builder.jar com.alloyprofiling.ModelBuilder
      ~~~
 
-  A **Results** directory should be creating containing models.txt, module-params.txt, span.txt and span-multi.txt.
+  A **Results** directory should be created containing models.txt, module-params.txt, span.txt and span-multi.txt.
 
-models.txt contains the list of files that make up each model. Each line represents a model that may contain multiple files. Each line in module-params.txt contains the name of each an importing file, the imported file and the parameters (if any). span.txt contains the span of each model (i.e. the number of files that make up each model). span-multi.txt contains the span of multi-file models only.
+models.txt contains the list of files that make up each model. Each line represents a model that may or may not contain multiple files. Each line in module-params.txt contains the name of each importing file, the imported file and the parameters (if any). span.txt contains the span of each model (i.e. the number of files that make up each model). span-multi.txt contains the span of multi-file models only.
 
 ### To run a script:
 
