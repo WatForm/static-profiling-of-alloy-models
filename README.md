@@ -351,6 +351,7 @@ http://sdg.lcs.mit.edu/pubs/theses/tnolte_masters.pdf
    * models/railway: A simple model of a railway system written by Danile Jackson.
    * paper-examples: Jackson, Daniel. “Alloy: a Language and Tool for Exploring Software Designs.” Communications of the ACM 62.9 (2019): 66–76. Web.
    * puzzles, utilities, simple models, logic: CSAIL MIT. https://www.csail.mit.edu/
+* x7t75qqe5fr6uzitot5sdu63o7drnur5-TransForm: N. Hossain, C. Trippel and M. Martonosi, "TransForm: Formally Specifying Transistency Models and Synthesizing Enhanced Litmus Tests," 2020 ACM/IEEE 47th Annual International Symposium on Computer Architecture (ISCA), Valencia, Spain, 2020, pp. 874-887, doi: 10.1109/ISCA45697.2020.00076.
 
 
 
